@@ -20,7 +20,7 @@ fn main() {
             let pairs = line
                 .trim()
                 .split(' ')
-                .map(|a| a.parse().unwrap())
+                .map(|num| num.parse().unwrap())
                 .collect::<Vec<i64>>();
 
             let val = (pairs[0] - pairs[1]).abs();

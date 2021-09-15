@@ -15,7 +15,7 @@ fn main() {
         .next()
         .unwrap()
         .split(' ')
-        .map(|a| a.parse::<usize>().unwrap())
+        .map(|value| value.parse::<usize>().unwrap())
         .collect::<Vec<usize>>();
 
     // extract row and dimensions as variables
