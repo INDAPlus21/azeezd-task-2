@@ -8,7 +8,7 @@ fn main() {
     let mut lines = input
         .lock()
         .lines()
-        .map(|n| n.ok().unwrap());
+        .map(|line| line.ok().unwrap());
 
     // Get dimensions of the desired rectangle, first and only row
     let dimensions = lines
@@ -27,10 +27,9 @@ fn main() {
         for col in 1..dimensions[1] + 1 {
 
             /*
-                This creates the "stairway effect" each row has an index and the values cannot exceed it
-                The minimum function compares an increasing value (index) and and decreasing value (rows - index)
-                creating this double-sided stairway effect on each row
-                This value is then compared with regards to the columns to make the effect on the columns as well
+                There are 2 horizontal and 2 vertical edges. The value on the current coordinate is the closest distance to the edge.
+                Thus to find the value we have to find the closest distance vertically and horizontally.
+                Then using that determine if the value is closest on the horizontal side or the vertical side.
             */
             let val = cmp::min(
                 cmp::min(row, rows - row),
